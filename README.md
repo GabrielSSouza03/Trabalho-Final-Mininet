@@ -1,4 +1,4 @@
-# 🧩 Trabalho Final – Mininet
+#  Trabalho Final – Mininet
 
 Disciplina: Conceitos e Tecnologias de Dispositivos Conectados
 Aluno: Gabriel Simões
@@ -16,7 +16,7 @@ Criar e analisar uma topologia em árvore (tree) com profundidade 3 e ramificaç
 ```
 sudo mn --topo tree,depth=3,fanout=5 --mac --link tc,bw=30
 ```
-🧩 Explicação:
+- Explicação:
 
 --topo tree,depth=3,fanout=5 → cria uma topologia em árvore com 3 níveis e 5 ramos por switch.
 
@@ -48,7 +48,7 @@ Endereços IP, MAC e portas
 ![tp1](Questão_1/topology_1.png)
 
 
-🧪 4. Teste de conectividade (Ping e Tcpdump)
+4. Teste de conectividade (Ping e Tcpdump)
 🔹 Teste de ping entre todos os nós:
 ```
 pingall
