@@ -78,7 +78,9 @@ Para testar outro cenário, reinicie o Mininet com:
 sudo mn -c
 sudo mn --topo tree,depth=3,fanout=5 --mac --link tc,bw=40
 
-![e2](Questão_1/e2.png)
+![e2](Questão_1/e2.png
+
+#### Obs: Processo inteiro se encontra em results.txt
 
 
 ## Questão 2 
