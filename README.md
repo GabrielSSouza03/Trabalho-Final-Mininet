@@ -3,7 +3,9 @@
 Disciplina: Conceitos e Tecnologias de Dispositivos Conectados
 
 Aluno: Gabriel Simões
+
 Sistema: Debian 12
+
 Simulador: Mininet
 
 ## Questão 1
