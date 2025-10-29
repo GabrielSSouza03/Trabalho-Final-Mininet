@@ -16,7 +16,7 @@ Criar e analisar uma topologia em árvore (tree) com profundidade 3 e ramificaç
 
  ## ⚙️ a. Criação da topologia
 🧾 Comando executado:
-```
+```bash
 sudo mn --topo tree,depth=3,fanout=5 --mac --link tc,bw=30
 ```
 - Explicação:
@@ -31,7 +31,7 @@ sudo mn --topo tree,depth=3,fanout=5 --mac --link tc,bw=30
 ## 🔍 b. Inspeção das interfaces e informações de rede
 
 Após a inicialização do Mininet, os comandos abaixo para foram utilizados para obter as informações:
-```
+```bash
 nodes
 net
 dump
@@ -53,7 +53,7 @@ Endereços IP, MAC e portas
 
 ## d. Teste de conectividade (Ping e Tcpdump)
 🔹 Teste de ping entre todos os nós:
-```
+```bash
 pingall
 ```
 
@@ -74,10 +74,10 @@ h2 iperf -c 10.0.0.1 -p 5555 -t 20 -i 1
 
 
 Para testar outro cenário, reinicie o Mininet com:
-
+```bash
 sudo mn -c
 sudo mn --topo tree,depth=3,fanout=5 --mac --link tc,bw=40
-
+```
 ![e2](Questão_1/e2.png)
 
 #### Obs: Processo inteiro se encontra em results.txt
@@ -88,13 +88,13 @@ sudo mn --topo tree,depth=3,fanout=5 --mac --link tc,bw=40
 ## ⚙️ a. Estrutura da Topologia
 
 A topologia foi definida através do script `topology.py`:
-```
+```bash
 sudo python3 topology.py
 ```
 ## 🔍 b. Inspeção das interfaces e informações de rede
 
 Após a inicialização do Mininet, use os comandos abaixo para obter as informações:
-```
+```bash
 mininet> nodes
 available nodes are: 
 h1 h2 h3 h4 h5 s1 s2 s3
@@ -126,10 +126,10 @@ mininet>
 
 ## d. Teste de conectividade (Ping)
 🔹 Teste de ping entre todos os nós:
-```
+```bash
 pingall
 ```
-```
+```bash
 *** Ping: testing ping reachability
 h1 -> h2 h3 h4 h5
 h2 -> h1 h3 h4 h5
@@ -141,13 +141,13 @@ h5 -> h1 h2 h3 h4
 ## ⚙️ e. Criar regras MAC específicas
 
 Limpeza das regras anteriores: 
-```
+```bash
 sh ovs-ofctl del-flows s1
 sh ovs-ofctl del-flows s2
 sh ovs-ofctl del-flows s3
 ```
 Descobrir endereço MAC: 
-```
+```bash
 mininet> h1 ifconfig
 h1-eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
         inet 10.0.0.1  netmask 255.255.255.0  broadcast 10.0.0.255
@@ -186,7 +186,7 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 ```
 Adicionar regras: 
-```
+```bash
 mininet> sh ovs-ofctl add-flow s1 "dl_src=72:ed:c7:47:74:16,actions=normal"
 mininet> sh ovs-ofctl add-flow s3 "dl_dst=3a:b9:2f:43:01:b7,actions=normal"
 
@@ -194,7 +194,7 @@ mininet> sh ovs-ofctl add-flow s3 "dl_dst=3a:b9:2f:43:01:b7,actions=normal"
 
 ## ⚡ e. Teste
 
-```
+```bash
 mininet> h1 ping -c 3 h5
 ```
 ```
